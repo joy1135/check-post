@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'cp/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'cp/css/normalize.css' %}">
+    <title>Главная страница</title>
+</head>
+<header class="header ">
+    <div class="container header__container">
+        <div class="logo">
+            <div class="logo__txt">
+                CP
+            </div>
+        </div>
+        <nav class="menu">
+            <ul class="menu__list">
+                <li lass="menu__item">
+                    <a href="" class="menu__link">Создать пост</a>
+                </li>
+                <li lass="menu__item">
+                    <a href="" class="menu__link">Войти</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<body>
+{% block post %}
+
+{% endblock %}
+</body>
+</html>
