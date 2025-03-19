@@ -1,4 +1,18 @@
 {% extends 'base.html' %}
 {% block post %}
-kjmljpn
+<ul class="posts">
+    {% for p in posts %}
+    <div class="posts__post">
+        {% if p.img %}
+        <div class="posts__wrapper">
+            <div class="posts__blur" style="background-image: url('{{ p.img.url }}');"></div>
+            <img src="{{ p.img.url }}" alt="Post Image" class="posts__img">
+        </div>
+        {% endif %}
+        </li>
+        <li class="posts__txt">{{ p.text }}
+    </div>
+    
+    {% endfor %}
+</ul>
 {% endblock %}

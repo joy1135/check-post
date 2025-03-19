@@ -15,6 +15,12 @@
                 CP
             </div>
         </div>
+        <form class="search-form">
+            <input type="text" placeholder="Искать пост" class="search-form__input">
+            <button type="submit" class="search-form__button">
+                <img src="/static/cp/imgs/search.png" alt="" class="search-form__img">
+            </button>
+        </form>
         <nav class="menu">
             <ul class="menu__list">
                 <li lass="menu__item">
@@ -27,9 +33,11 @@
         </nav>
     </div>
 </header>
-<body>
-{% block post %}
+<body class="body">
+    <div class="container body__container">
+        {% block post %}
+        {% endblock %}
+    </div>
 
-{% endblock %}
 </body>
 </html>

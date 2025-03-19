@@ -4,4 +4,4 @@ from cp import views
 urlpatterns = [
     path('', views.index, name='home'),
     path('post/<int:post_id>/', views.post)
-]
+] 
