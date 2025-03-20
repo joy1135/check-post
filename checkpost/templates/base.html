@@ -6,37 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'cp/css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'cp/css/normalize.css' %}">
-    <title>Главная страница</title>
+<title>{{ title }}</title>
 </head>
 <header class="header ">
     <div class="container header__container">
-        <div class="logo">
-            <div class="logo__txt">
-                CP
+        <a href="{% url 'home' %}" class="home__link">
+            <div class="logo">
+                <div class="logo__txt">
+                    CP
+                </div>
             </div>
-        </div>
-        <form class="search-form">
-            <input type="text" placeholder="Искать пост" class="search-form__input">
+        </a>
+        <form class="search-form" method="GET" action="{% url 'search' %}">
+            <input type="text" name="q" placeholder="Искать пост" class="search-form__input">
             <button type="submit" class="search-form__button">
                 <img src="/static/cp/imgs/search.png" alt="" class="search-form__img">
             </button>
         </form>
         <nav class="menu">
             <ul class="menu__list">
+                {% if user.is_authenticated %}
                 <li lass="menu__item">
-                    <a href="" class="menu__link">Создать пост</a>
-                </li>
-                <li lass="menu__item">
-                    <a href="" class="menu__link">Войти</a>
-                </li>
+                    <a href="{% url 'create_post' %}" class="menu__link">Создать пост</a>
+                </li> 
+                {% endif %}
+                {% if user.is_authenticated %}
+                    <li class="menu__item">
+                        <a href="{% url 'logout' %}" class="menu__link">Выйти</a>
+                    </li>
+                {% else %}
+                    <li class="menu__item">
+                        <a href="{% url 'login' %}" class="menu__link">Войти</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="{% url 'register' %}" class="menu__link">Регистрация</a>
+                    </li>
+                {% endif %}
             </ul>
         </nav>
     </div>
 </header>
 <body class="body">
     <div class="container body__container">
+        {% block posts %}
+        {% endblock %}
         {% block post %}
         {% endblock %}
+        {% block content %}{% endblock %}
     </div>
 
 </body>

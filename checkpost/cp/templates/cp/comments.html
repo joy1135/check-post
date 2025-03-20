@@ -1,0 +1,15 @@
+{% block comments %}
+
+<div class="coms">
+    <ul class="coms__list">
+        <div class="coms__name">Комментарии</div>
+        {% for c in comments %}
+        <div class="coms__com">
+            <div class="com__user">От: {{ c.user }}</div>
+            <li class="com__txt">{{ c.text_com }}</li>
+        </div>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

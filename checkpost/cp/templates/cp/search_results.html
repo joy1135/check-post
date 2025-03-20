@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block post %}
+<div class="search-results">
+    <h2 class="search-results__title">
+        {% if query %} Результаты поиска для "{{ query }}" {% else %} Поиск постов {% endif %}
+    </h2>
+
+    {% if results %}
+        <ul class="posts">
+            {% for p in results %}
+            <div class="posts__post">
+                {% if p.img %}
+                <div class="posts__wrapper">
+                    <div class="posts__blur" style="background-image: url('{{ p.img.url }}');"></div>
+                    <img src="{{ p.img.url }}" alt="Post Image" class="posts__img">
+                </div>
+                {% endif %}
+                <li class="posts__txt">{{ p.text }}</li>
+                <a href="{% url 'post' p.id %}" class="posts__link"><button class="posts__btn">Открыть</button></a>
+            </div>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="search-results__empty">Ничего не найдено 😔</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block post %}
+{% block posts %}
 <ul class="posts">
     {% for p in posts %}
     <div class="posts__post">
@@ -9,10 +9,10 @@
             <img src="{{ p.img.url }}" alt="Post Image" class="posts__img">
         </div>
         {% endif %}
-        </li>
-        <li class="posts__txt">{{ p.text }}
+        <li class="posts__txt">{{ p.text }}</li>
+        <a href="{% url 'post' p.id %}" class="posts__link"><button class="posts__btn">Открыть</button></a>
     </div>
-    
     {% endfor %}
 </ul>
+
 {% endblock %}

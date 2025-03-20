@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="auth">
+    <div class="auth__container">
+        <h2 class="auth__title">Вход</h2>
+        <form method="post" class="auth__form">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Имя пользователя" class="auth__input" required>
+            <input type="password" name="password" placeholder="Пароль" class="auth__input" required>
+            <button type="submit" class="auth__btn">Войти</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

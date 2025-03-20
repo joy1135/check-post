@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block post %}
+<ul class="posts">
+    <div class="posts__post">
+        {% if post.img %}
+        <div class="posts__wrapper">
+            <div class="posts__blur" style="background-image: url('{{ post.img.url }}');"></div>
+            <img src="{{ post.img.url }}" alt="Post Image" class="posts__img">
+        </div>
+        {% endif %}
+        <li class="posts__txt">{{ post.text }}</li>
+        <div class="post_nick">Автор: {{ post.user }}</div>
+    </div>
+    <form method="POST" class="comment-form">
+        {% csrf_token %}
+        {{ form.text_com }}
+        <button type="submit" class="comment-form__btn">
+            <img src="/static/cp/imgs/arrow.png" alt="" class="comment-form__img">
+        </button>
+    </form>
+</ul>
+{% include 'cp/comments.html' %}
+{% endblock %}
