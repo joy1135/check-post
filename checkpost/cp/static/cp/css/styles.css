@@ -22,6 +22,8 @@ body {
 .header {
     background-color: #1E3A8A;
     max-height: 100px;
+    position: relative;
+  
 }
 
 .header__container {
@@ -373,6 +375,43 @@ body {
   background-color: #2563EB;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pagination__btn {
+  padding: 8px 12px;
+  background-color: #3B82F6;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.pagination__btn:hover {
+  background-color: #2563EB;
+}
+
+.pagination__current {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #333;
+}
+
+.menu__br {
+  display: none;
+  width: 40;
+  height: 40;
+}
+
+.menu__toggle {
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
     .container {
       max-width: 1024px;
@@ -385,6 +424,9 @@ body {
   .posts__post {
     max-width: 500px;
   } 
+  .comment-form__input {
+    width: 500px;
+  }
   .posts__wrapper {
     height: 400px;
   }
@@ -404,6 +446,8 @@ body {
     height: 100px;
     width: 140px;
 }
+
+
   
 }
 @media screen and (max-width: 576px) {
@@ -413,6 +457,9 @@ body {
   .posts__post {
     max-width: 300px;
   } 
+  .comment-form__input {
+    width: 300px;
+  }
   .posts__wrapper {
     height: 200px;
   }
@@ -425,6 +472,55 @@ body {
   .posts__btn {
     font-size: 16px;
   }
+  .menu__list {
+    display: none;
+  }
+  
+  .menu__item {
+      margin-bottom: 10px;
+  }
+
+  .menu__link {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px;
+      display: block;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+  }
+
+  .menu__link:hover {
+      background-color: #2563EB;
+  }
+
+
+  .menu.active {
+      display: flex;
+  }
+  
+  .menu__toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+  }
+  .menu__br {
+    display: block;
+    cursor: pointer;
+  }
+  .logo {
+    font-size: 70px;
+    height: 100px;
+    width: 100px;
+  }
+  .search-form__input {
+    width: 140px;
+    padding: 8px 20px 8px 12px;
+  }
+  
 }
 @media screen and (max-width: 320px) {
   .container {

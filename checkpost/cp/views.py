@@ -6,13 +6,22 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RegisterForm, LoginForm, CommentForm, PostForm
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 def index(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-id')
+    
+    paginator = Paginator(posts, 5)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
     data = {
         'title': 'Главная странциа',
-        'posts': posts
+        'posts': page_obj
     }
+
+    
+
     return render(request, 'cp/index.html', context=data)
 
 def post(request, post_id):

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'cp/css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'cp/css/normalize.css' %}">
+    <script src="{% static 'cp/js/script.js' %}"></script>
 <title>{{ title }}</title>
 </head>
 <header class="header ">
@@ -24,9 +25,12 @@
             </button>
         </form>
         <nav class="menu">
+            <button class="menu__toggle" onclick="toggleMenu()">
+                <img src="/static/cp/imgs/br.png" alt="" class="menu__br">
+            </button>
             <ul class="menu__list">
                 {% if user.is_authenticated %}
-                <li lass="menu__item">
+                <li class="menu__item">
                     <a href="{% url 'create_post' %}" class="menu__link">Создать пост</a>
                 </li> 
                 {% endif %}
